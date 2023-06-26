@@ -11,13 +11,6 @@ I execute following commands to create this folder, first i write "python3 proje
 
 
 
-them:
-git remote add origin <remote_repository_url>
-
-and:
-git push -u origin main
-
-and when it does not work:
 
 P.S.: little help:
 

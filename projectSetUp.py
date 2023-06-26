@@ -15,6 +15,8 @@ def copy_template_files(project_dir, project_name):
     shutil.copy(os.path.join(template_dir, "index.html"), os.path.join(project_dir, project_name, "src/index.html"))
     shutil.copy(os.path.join(template_dir, "main.js"), os.path.join(project_dir, project_name, "src/main.js"))
     shutil.copy(os.path.join(template_dir, "style.css"), os.path.join(project_dir, project_name, "src/style.css"))
+    shutil.copy(os.path.join(template_dir, ".gitignore"), os.path.join(project_dir, project_name, ".gitignore"))
+    shutil.copy(os.path.join(template_dir, "LICENSE"), os.path.join(project_dir, project_name, "LICENSE"))
 
 def initialize_git_repository(project_dir, project_name):
     os.chdir(os.path.join(project_dir, project_name))  # Change the current working directory to the project directory
@@ -34,7 +36,7 @@ def push_to_remote_repository(project_dir, project_name):
 def create_project():
     project_dir = input("Enter the project directory path: ")
     project_name = input("Enter the project name: ")
-    remote_url = input("Enter URL of your remote repository.")
+    remote_url = input("Enter URL of your remote repository:")
     
     create_project_folder(project_dir, project_name)
     create_project_structure(project_dir, project_name)
