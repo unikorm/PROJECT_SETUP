@@ -21,9 +21,11 @@ def create_project(project_dir, project_name):
     copy_template_files(project_dir, project_name)
     print("Project structure created successfully!")
 
+
 # Specify the project directory and name
 project_directory = "/Users/adamaanna/documents/www"
 project_name = "projectSetup"
+
 
 # Call the function with the project directory and name
 create_project(project_directory, project_name)
