@@ -17,13 +17,14 @@ def copy_template_files(project_dir, project_name):
     shutil.copy(os.path.join(template_dir, "style.css"), os.path.join(project_dir, project_name, "src/style.css"))
     shutil.copy(os.path.join(template_dir, ".gitignore"), os.path.join(project_dir, project_name, ".gitignore"))
     shutil.copy(os.path.join(template_dir, "LICENSE"), os.path.join(project_dir, project_name, "LICENSE"))
+    shutil.copy(os.path.join(template_dir, "README.md"), os.path.join(project_dir, project_name, "README.md"))
 
 def initialize_git_repository(project_dir, project_name):
     os.chdir(os.path.join(project_dir, project_name))  # Change the current working directory to the project directory
     subprocess.run(["git", "init"])  # Initialize a Git repository
     subprocess.run(["git", "branch", "-m", "main"]) # Change name of initial branch
     subprocess.run(["git", "add", "."])  # Stage all files
-    subprocess.run(["git", "commit", "-m", "Initial commit"])  # Commit the changes
+    subprocess.run(["git", "commit", "-m", "Initial mother fucker (commit)"])  # Commit the changes
 
 def add_remote_repository(project_dir, project_name, remote_url):
     os.chdir(os.path.join(project_dir, project_name))  # Change the current working directory to the project directory
@@ -36,7 +37,7 @@ def push_to_remote_repository(project_dir, project_name):
 def create_project():
     project_dir = input("Enter the project directory path: ")
     project_name = input("Enter the project name: ")
-    remote_url = input("Enter URL of your remote repository:")
+    remote_url = input("Enter URL of your remote repository: ")
     
     create_project_folder(project_dir, project_name)
     create_project_structure(project_dir, project_name)
