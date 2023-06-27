@@ -1,6 +1,7 @@
 import os
 import shutil
 import subprocess
+import json
 
 def initialize_npm(project_dir, project_name):
     os.chdir(os.path.join(project_dir, project_name))
@@ -38,10 +39,22 @@ def push_to_remote_repository(project_dir, project_name):
     os.chdir(os.path.join(project_dir, project_name))  # Change the current working directory to the project directory
     subprocess.run(["git", "push", "-u", "origin", "main"])  # Push to the remote repository
 
+def update_package_json(project_dir, project_name, description):
+    package_file = os.path.join(project_dir, project_name, 'package.json')
+    with open(package_file, 'r') as file:
+        data = json.load(file)
+    
+    data['description'] = description
+    data['author'] = 'adamko69'
+    
+    with open(package_file, 'w') as file:
+        json.dump(data, file, indent=2)
+
 def create_project():
-    project_dir = input("Enter the project directory path: ")
+    project_dir = input("Enter the local project path in this computer: ")
     project_name = input("Enter the project name: ")
-    remote_url = input("Enter URL of your remote repository: ")
+    description = input("Enter main description of this site: ")
+    remote_url = input("Enter URL of your remote repository from Github: ")
     
     create_project_folder(project_dir, project_name)
     initialize_npm(project_dir, project_name)
@@ -50,11 +63,13 @@ def create_project():
     initialize_git_repository(project_dir, project_name)
     add_remote_repository(project_dir, project_name, remote_url)
     push_to_remote_repository(project_dir, project_name)
+    update_package_json(project_dir, project_name, description)
 
     print("Project structure created successfully.... you bitch! Now you must code until your death")
     print("Git repository initialized with initial commit")
     print(f"Remote repository {remote_url} added as origin.")
     print("Initial commit pushed to the remote repository. Now you can continue to program some great stuff")
+    print("Project created successfully!")
 
 # Call the function to create the project interactively
 create_project()
