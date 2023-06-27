@@ -2,6 +2,10 @@ import os
 import shutil
 import subprocess
 
+def initialize_npm(project_dir, project_name):
+    os.chdir(os.path.join(project_dir, project_name))
+    subprocess.run(["npm", "init", "-y"])
+
 def create_project_folder(project_dir, project_name):
     os.makedirs(os.path.join(project_dir, project_name))
 
@@ -40,6 +44,7 @@ def create_project():
     remote_url = input("Enter URL of your remote repository: ")
     
     create_project_folder(project_dir, project_name)
+    initialize_npm(project_dir, project_name)
     create_project_structure(project_dir, project_name)
     copy_template_files(project_dir, project_name)
     initialize_git_repository(project_dir, project_name)
