@@ -6,8 +6,8 @@ vzor:
 
 ```git
 adamaanna@MacBook-Air-uzivatela-Adam project_Setup % python3 projectSetUp.py  
-Enter the project directory: "/Users/adamaanna/documents/www"  
-Enter the project name: "hahaha"  
+Enter the project directory: /Users/adamaanna/documents/www   
+Enter the project name: hahaha    
 Project structure created successfully!  
 ```
 
@@ -16,7 +16,7 @@ I execute following commands to create this folder, first i write "python3 proje
 *P.S.: don't worry, folder assets will be create on Github when you put there some data*
 
 
-**P.S.: little help:**
+*P.S.: little help:*
 
 **How to solve this problem of "! [rejected] master -> master (fetch first)"**
 
@@ -30,4 +30,8 @@ git push origin HEAD:main
 git branch -D tmp  
 ```
 
-## *Now everything works well. smile (((((:*
+## *Now everything works well. smile (((((:*  
+
+*and another P.S.: when you creating new repository on Github, do it without :gitignore, README.md, LICENSE, these files will be created automatically*
+
+
