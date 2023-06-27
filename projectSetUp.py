@@ -19,24 +19,12 @@ def create_project_structure(project_dir, project_name):
 
 def copy_template_files(project_dir, project_name):
     template_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")
-    project_template_dir = os.path.join(project_dir, project_name)
-
-    # Create the necessary directories
-    os.makedirs(os.path.join(project_template_dir, "src"), exist_ok=True)
-
-    # Get the absolute paths of the template files
-    template_files = [
-        ("index.html", os.path.join("src", "index.html")),
-        ("main.js", os.path.join("src", "main.js")),
-        ("style.css", os.path.join("src", "style.css")),
-        (".gitignore", ".gitignore"),
-        ("LICENSE", "LICENSE"),
-        ("README.md", "README.md")
-    ]
-
-    # Copy the template files
-    for template_file, destination_file in template_files:
-        shutil.copy(os.path.join(template_dir, template_file), os.path.join(project_template_dir, destination_file))
+    shutil.copy(os.path.join(template_dir, "index.html"), os.path.join(project_dir, project_name, "src/index.html"))
+    shutil.copy(os.path.join(template_dir, "main.js"), os.path.join(project_dir, project_name, "src/main.js"))
+    shutil.copy(os.path.join(template_dir, "style.css"), os.path.join(project_dir, project_name, "src/style.css"))
+    shutil.copy(os.path.join(template_dir, ".gitignore"), os.path.join(project_dir, project_name, ".gitignore"))
+    shutil.copy(os.path.join(template_dir, "LICENSE"), os.path.join(project_dir, project_name, "LICENSE"))
+    shutil.copy(os.path.join(template_dir, "README.md"), os.path.join(project_dir, project_name, "README.md"))
 
 def initialize_git_repository(project_dir, project_name):
     os.chdir(os.path.join(project_dir, project_name))  # Change the current working directory to the project directory
@@ -85,10 +73,10 @@ def create_project():
     update_package_json(project_dir, project_name, description)
     update_readme(project_dir, project_name, description)
 
-    print("Project structure created successfully.... you bitch! Now you must code until your death")
+    print("Project structure created successfully!")
     print("Git repository initialized with initial commit")
     print(f"Remote repository {remote_url} added as origin.")
-    print("Initial commit pushed to the remote repository. Now you can continue to program some great stuff")
+    print("Initial commit pushed to the remote repository. Now you can continue to program some great stuff.... you bitch! Now you must code until your death")
     print("Project created successfully!")
 
 # Call the function to create the project interactively
