@@ -50,6 +50,11 @@ def update_package_json(project_dir, project_name, description):
     with open(package_file, 'w') as file:
         json.dump(data, file, indent=2)
 
+def update_readme(project_dir, project_name, description):
+    readme_file = os.path.join(project_dir, project_name, "README.md")
+    with open(readme_file, "w") as f:
+        f.write(f"# {project_name}\n\n{description}\n")
+
 def create_project():
     project_dir = input("Enter the local project path in this computer: ")
     project_name = input("Enter the project name: ")
@@ -64,6 +69,7 @@ def create_project():
     add_remote_repository(project_dir, project_name, remote_url)
     push_to_remote_repository(project_dir, project_name)
     update_package_json(project_dir, project_name, description)
+    update_readme(project_dir, project_name, description)
 
     print("Project structure created successfully.... you bitch! Now you must code until your death")
     print("Git repository initialized with initial commit")
