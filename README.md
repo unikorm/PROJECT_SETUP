@@ -32,6 +32,10 @@ git branch -D tmp
 
 ## *Now everything works well. smile (((((:*  
 
-*and another P.S.: when you creating new repository on Github, do it without :gitignore, README.md, LICENSE, these files will be created automatically*
+*and another P.S.: when you creating new repository on Github, do it without :gitignore, README.md, LICENSE, these files will be created automatically*  
+
+*and now little update,. it works from anywhere on my computer, i just open terminal, type: projectSetUp and it run the script, i put this folder into the PATH and now i have access to it from Jupiter too...*
+
+
 
 
