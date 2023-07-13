@@ -37,8 +37,9 @@ def add_remote_repository(project_dir, project_name, remote_url):
     os.chdir(os.path.join(project_dir, project_name))  # Change the current working directory to the project directory
     subprocess.run(["git", "remote", "add", "origin", remote_url])  # Add the remote repository URL
 
-def push_to_remote_repository(project_dir, project_name):
-    os.chdir(os.path.join(project_dir, project_name))  # Change the current working directory to the project directory
+def push_to_remote_repository(project_dir, project_name, commit_message):
+    os.chdir(os.path.join(project_dir, project_name))
+    subprocess.run(["git", "commit", "-am", commit_message])  # Commit all changes
     subprocess.run(["git", "push", "-u", "origin", "main"])  # Push to the remote repository
 
 def update_package_json(project_dir, project_name, description):
@@ -69,9 +70,9 @@ def create_project():
     copy_template_files(project_dir, project_name)
     initialize_git_repository(project_dir, project_name)
     add_remote_repository(project_dir, project_name, remote_url)
-    push_to_remote_repository(project_dir, project_name)
     update_package_json(project_dir, project_name, description)
     update_readme(project_dir, project_name, description)
+    push_to_remote_repository(project_dir, project_name, "update README file")
 
     print("Project structure created successfully!")
     print("Git repository initialized with initial commit")
