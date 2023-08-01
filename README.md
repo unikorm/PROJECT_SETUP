@@ -15,7 +15,6 @@ this is start, everything else you will see in terminal
 
 I execute following commands to create this folder, first i write "python3 projectSetUp.py" command, that call my Python file where is function to create this magic. Then terminal ask me to specific folder to save and then name of creating folder, and that it for now
 
-*P.S.: don't worry, folder assets will be create on Github when you put there some data*
 
 
 *P.S.: little help:*
