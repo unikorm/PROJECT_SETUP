@@ -13,15 +13,23 @@ def create_project_folder(project_dir, project_name):
     os.makedirs(os.path.join(project_dir, project_name))
 
 def create_project_structure(project_dir, project_name):
-    folders = ["src"]
-    for folder in folders:
-        os.makedirs(os.path.join(project_dir, project_name, folder))
+    src_path = os.path.join(project_dir, project_name, "src")
+    js_path = os.path.join(src_path, "js")
+    css_path = os.path.join(src_path, "css")
+    
+    os.makedirs(js_path)
+    os.makedirs(css_path)
 
 def copy_template_files(project_dir, project_name):
     template_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")
-    shutil.copy(os.path.join(template_dir, "index.html"), os.path.join(project_dir, project_name, "src/index.html"))
-    shutil.copy(os.path.join(template_dir, "main.js"), os.path.join(project_dir, project_name, "src/main.js"))
-    shutil.copy(os.path.join(template_dir, "style.css"), os.path.join(project_dir, project_name, "src/style.css")) 
+    
+    src_path = os.path.join(project_dir, project_name, "src")
+    js_path = os.path.join(src_path, "js")
+    css_path = os.path.join(src_path, "css")
+    
+    shutil.copy(os.path.join(template_dir, "index.html"), os.path.join(project_dir, project_name, "index.html"))
+    shutil.copy(os.path.join(template_dir, "main.js"), os.path.join(js_path, "main.js"))
+    shutil.copy(os.path.join(template_dir, "style.css"), os.path.join(css_path, "style.css")) 
     shutil.copy(os.path.join(template_dir, ".gitignore"), os.path.join(project_dir, project_name, ".gitignore"))
     shutil.copy(os.path.join(template_dir, "LICENSE"), os.path.join(project_dir, project_name, "LICENSE"))
     shutil.copy(os.path.join(template_dir, "README.md"), os.path.join(project_dir, project_name, "README.md"))
